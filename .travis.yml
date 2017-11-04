@@ -1,0 +1,13 @@
+language: node_js
+
+node_js:
+  - '6'
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.cache/yarn
+
+addons:
+  firefox: "50.0"
