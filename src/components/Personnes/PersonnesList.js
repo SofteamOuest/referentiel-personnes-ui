@@ -5,12 +5,11 @@ import PersonneCard from "./PersonneCard";
 const PersonnesList = inject("personnesStore")(
   observer(({ personnesStore }) =>
     <section>
-      <h1>Personnes List</h1>
-      <ol>
+      <div class="row">
         {personnesStore.personnes.map(personne =>
           <PersonneCard key={personne.id} personne={personne} />
         )}
-      </ol>
+      </div>
     </section>
   )
 );

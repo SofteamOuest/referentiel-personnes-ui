@@ -1,20 +1,28 @@
 import React from "react";
 import { observer, inject } from "mobx-react";
+import { Card, CardActions, CardMedia, CardTitle } from "material-ui/Card";
+import FlatButton from "material-ui/FlatButton";
 
 const PersonneCard = inject("personnesStore")(
   observer(({ personne, personnesStore }) =>
-    <li>
-      <a
-        href={`/personnes/${personne.id}`}
-        onClick={e => {
-          e.preventDefault();
-          personnesStore.view.openPersonnePage(personne);
-          return false;
-        }}
-      >
-        {personne.nom} - {personne.prenom}
-      </a>
-    </li>
+    <div class="col-sm">
+      <Card>
+        <CardMedia
+          overlay={
+            <CardTitle
+              title={personne.prenom + " " + personne.nom}
+              subtitle={personne.description_libre}
+            />
+          }
+        >
+          <img src={personne.photo} alt="" />
+        </CardMedia>
+        <CardActions>
+          <FlatButton label="Action1" />
+          <FlatButton label="Action2" />
+        </CardActions>
+      </Card>
+    </div>
   )
 );
 

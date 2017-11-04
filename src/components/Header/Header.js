@@ -8,6 +8,6 @@ const styles = {
 };
 
 const Header = () =>
-  <AppBar title={<span style={styles.title}>Personnes | SOFTEAM</span>} />;
+  <AppBar title={<span style={styles.title}>Personnes | SOFTEAM DIGITAL</span>} />;
 
 export default Header;
