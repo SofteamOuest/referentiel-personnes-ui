@@ -13,6 +13,7 @@ const styles = {
 const Header = ({ history }) =>
   <AppBar
     title={<span style={styles.title}>Personnes | SOFTEAM DIGITAL</span>}
+    onTitleTouchTap={() => history.push("/")}
     iconElementRight={
       //<Link to="/add">
       <IconButton>

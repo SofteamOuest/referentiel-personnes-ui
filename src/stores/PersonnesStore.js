@@ -5,11 +5,12 @@ import Personne from "../models/Personne";
 const PersonnesStore = types
   .model("PersonnesStore", {
     personnes: types.optional(types.array(Personne), []),
+    edited: types.maybe(types.reference(Personne)),
     fetchingData: types.optional(types.boolean, false)
   })
   .views(self => ({
     get PersonnesCount() {
-      return this.personnes.length;
+      return self.personnes.length;
     }
   }))
   .actions(self => ({
@@ -23,6 +24,14 @@ const PersonnesStore = types
 
     markFecthingData(fetching) {
       self.fetchingData = fetching;
+    },
+
+    setEdited(personne) {
+      self.edited = personne;
+    },
+    getPersonneById(id) {
+      console.log(self.personnes);
+      return self.personnes.filter(personne => personne.id === id);
     }
   }));
 

@@ -3,7 +3,7 @@ import { types } from "mobx-state-tree";
 
 const Personne = types
   .model("Personne", {
-    id: types.maybe(types.number),
+    id: types.identifier(types.number),
     nom: types.maybe(types.string),
     prenom: types.maybe(types.string),
     date_de_naissance: types.maybe(types.string),
