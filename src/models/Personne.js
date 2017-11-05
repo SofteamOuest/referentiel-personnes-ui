@@ -1,4 +1,4 @@
-import { capitalize } from "lodash";
+import { capitalize, random } from "lodash";
 import { types } from "mobx-state-tree";
 
 const Personne = types
@@ -20,6 +20,13 @@ const Personne = types
       self.nom = self.nom.toUpperCase();
       self.prenom = capitalize(self.prenom);
     }
-  }));
+  }))
+  .preProcessSnapshot(snapshot => {
+    return Object.assign({}, snapshot, {
+      id: random(-1000, 0),
+      nom: "",
+      prenom: ""
+    });
+  });
 
 export default Personne;
