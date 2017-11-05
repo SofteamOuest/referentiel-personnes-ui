@@ -1,5 +1,8 @@
 import React from "react";
 import { AppBar } from "material-ui";
+import AddIcon from "material-ui/svg-icons/content/add";
+import IconButton from "material-ui/IconButton";
+import { withRouter } from "react-router-dom";
 
 const styles = {
   title: {
@@ -7,7 +10,17 @@ const styles = {
   }
 };
 
-const Header = () =>
-  <AppBar title={<span style={styles.title}>Personnes | SOFTEAM DIGITAL</span>} />;
+const Header = ({ history }) =>
+  <AppBar
+    title={<span style={styles.title}>Personnes | SOFTEAM DIGITAL</span>}
+    iconElementRight={
+      //<Link to="/add">
+      <IconButton>
+        <AddIcon />
+      </IconButton>
+      //</Link>
+    }
+    onRightIconButtonTouchTap={() => history.push("/add")}
+  />;
 
-export default Header;
+export default withRouter(Header);

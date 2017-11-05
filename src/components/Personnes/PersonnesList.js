@@ -2,16 +2,13 @@ import React from "react";
 import { observer, inject } from "mobx-react";
 import PersonneCard from "./PersonneCard";
 
-const PersonnesList = inject("personnesStore")(
-  observer(({ personnesStore }) =>
-    <section>
-      <div class="row">
-        {personnesStore.personnes.map(personne =>
-          <PersonneCard key={personne.id} personne={personne} />
-        )}
-      </div>
-    </section>
-  )
-);
+const PersonnesList = ({ personnesStore }) =>
+  <section>
+    <div className="row">
+      {personnesStore.personnes.map(personne =>
+        <PersonneCard key={personne.id} personne={personne} />
+      )}
+    </div>
+  </section>;
 
-export default PersonnesList;
+export default inject("personnesStore")(observer(PersonnesList));

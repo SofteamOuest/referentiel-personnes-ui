@@ -1,8 +1,5 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
-import Header from "../../components/Header/Header";
-import Loading from "../../components/Loading/Loading";
-import PersonnesList from "../../components/Personnes/PersonnesList";
 import {
   blueGrey900,
   blueGrey700,
@@ -10,6 +7,13 @@ import {
 } from "material-ui/styles/colors";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import { Route, Router } from "react-router-dom";
+import createBrowserHistory from "history/createBrowserHistory";
+import Header from "../../components/Header/Header";
+import Loading from "../../components/Loading/Loading";
+import PersonneAdd from "../../components/Personnes/PersonneAdd";
+import PersonneDetails from "../../components/Personnes/PersonneDetails";
+import PersonnesList from "../../components/Personnes/PersonnesList";
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -19,16 +23,25 @@ const muiTheme = getMuiTheme({
   }
 });
 
+// Create React Router Browser History
+const history = createBrowserHistory();
+
 const App = ({ personnesStore }) =>
-  personnesStore.fetchingData
-    ? <Loading />
-    : <MuiThemeProvider muiTheme={muiTheme}>
+  <MuiThemeProvider muiTheme={muiTheme}>
+    <div>
+      <Router history={history}>
         <div>
           <Header />
-          {personnesStore.personnes.length
-            ? <PersonnesList repos={personnesStore.personnes} />
-            : null}
+          {personnesStore.fetchingData
+            ? <Loading />
+            : <div>
+                <Route exact path="/" component={PersonnesList} />
+                <Route exact path="/add" component={PersonneAdd} />
+                <Route path="/details/:id" component={PersonneDetails} />
+              </div>}
         </div>
-      </MuiThemeProvider>;
+      </Router>
+    </div>
+  </MuiThemeProvider>;
 
 export default inject("personnesStore")(observer(App));
