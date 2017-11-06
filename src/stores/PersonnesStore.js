@@ -1,4 +1,4 @@
-import { types, process } from "mobx-state-tree";
+import { flow, types } from "mobx-state-tree";
 import Personne from "../models/Personne";
 
 const PersonnesStore = types
@@ -9,7 +9,7 @@ const PersonnesStore = types
     fetchingData: types.optional(types.boolean, false)
   })
   .actions(self => ({
-    fetchPersonnes: process(function* load() {
+    fetchPersonnes: flow(function* load() {
       self.personnes = [];
       const personnes = yield fetch(
         "https://meltingpoc.k8.wildwidewest.xyz/api-personnes-mock/personnes"
