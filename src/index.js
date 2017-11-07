@@ -11,7 +11,6 @@ import registerServiceWorker from "./registerServiceWorker";
 
 const personnesStore = PersonnesStore.create();
 personnesStore.fetchPersonnes();
-personnesStore.resetNewPersonne();
 
 const store = {
   personnesStore: personnesStore

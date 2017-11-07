@@ -5,7 +5,6 @@ const PersonnesStore = types
   .model("PersonnesStore", {
     personnes: types.optional(types.array(Personne), []),
     edited: types.maybe(types.reference(Personne)),
-    newPersonne: types.maybe(types.reference(Personne)),
     fetchingData: types.optional(types.boolean, false)
   })
   .actions(self => ({
@@ -23,10 +22,6 @@ const PersonnesStore = types
 
     setEdited(personne) {
       self.edited = personne;
-    },
-
-    resetNewPersonne() {
-      self.newPersonne = Personne.create();
     },
     getPersonneById(id) {
       console.log(self.personnes);
