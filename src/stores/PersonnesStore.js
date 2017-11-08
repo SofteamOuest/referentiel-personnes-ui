@@ -15,6 +15,19 @@ const PersonnesStore = types
       ).then(data => data.json());
       self.personnes = personnes;
     }),
+    submitPersonne: flow(function* post(personne) {
+      delete personne.id;
+      yield fetch(
+        "https://meltingpoc.k8.wildwidewest.xyz/api-personnes-mock/personnes",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(personne)
+        }
+      );
+    }),
 
     markFecthingData(fetching) {
       self.fetchingData = fetching;
