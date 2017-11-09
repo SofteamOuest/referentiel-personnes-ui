@@ -17,8 +17,12 @@ const Personne = types
   })
   .actions(self => ({
     afterCreate: () => {
-      self.nom = self.nom.toUpperCase();
-      self.prenom = capitalize(self.prenom);
+      if (self.nom) {
+        self.nom = self.nom.toUpperCase();
+      }
+      if (self.prenom) {
+        self.prenom = capitalize(self.prenom);
+      }
     }
   }));
 
