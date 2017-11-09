@@ -4,8 +4,8 @@ import { observer, inject } from "mobx-react";
 import FlatButton from "material-ui/FlatButton";
 import { Card, CardActions, CardMedia, CardTitle } from "material-ui/Card";
 
-const PersonneCard = ({ personne, personnesStore, history }) =>
-  <div className="col-sm">
+const PersonneCard = ({ personne, personnesStore, history }) => (
+  <div className="col-xs-6 col-md-3">
     <Card>
       <CardMedia
         overlay={
@@ -26,7 +26,8 @@ const PersonneCard = ({ personne, personnesStore, history }) =>
         />
       </CardActions>
     </Card>
-  </div>;
+  </div>
+);
 
 function openPersonneDetailsPage(history, personnesStore, personne) {
   personnesStore.setEdited(personne);
