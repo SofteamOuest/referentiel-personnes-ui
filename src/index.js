@@ -10,7 +10,6 @@ import registerServiceWorker from "./registerServiceWorker";
 // mobx.useStrict(true);
 
 const personnesStore = PersonnesStore.create();
-personnesStore.fetchPersonnes();
 
 const store = {
   personnesStore: personnesStore
