@@ -10,10 +10,11 @@ const styles = {
   }
 };
 
-const Header = ({ history }) =>
+const Header = ({ history }) => (
   <AppBar
     title={<span style={styles.title}>Personnes | SOFTEAM DIGITAL</span>}
     onTitleTouchTap={() => history.push("/")}
+    iconElementLeft={<div />}
     iconElementRight={
       //<Link to="/add">
       <IconButton>
@@ -22,6 +23,7 @@ const Header = ({ history }) =>
       //</Link>
     }
     onRightIconButtonTouchTap={() => history.push("/add")}
-  />;
+  />
+);
 
 export default withRouter(Header);
