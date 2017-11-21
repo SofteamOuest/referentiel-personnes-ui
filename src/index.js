@@ -4,7 +4,6 @@ import { Provider } from "mobx-react";
 import "./index.css";
 import App from "./containers/App/App";
 import PersonnesStore from "./stores/PersonnesStore";
-import registerServiceWorker from "./registerServiceWorker";
 
 // Enable MobX Strict Functionality
 // mobx.useStrict(true);
@@ -22,5 +21,3 @@ const main = (
 );
 
 ReactDOM.render(main, document.getElementById("root"));
-
-registerServiceWorker();
