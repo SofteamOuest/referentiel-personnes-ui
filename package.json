@@ -2,6 +2,7 @@
   "name": "referentiel-personnes-ui",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://meltingpoc.k8.wildwidewest.xyz/referentiel-personnes-ui/",
   "dependencies": {
     "history": "^4.7.2",
     "lodash": "^4.17.4",
