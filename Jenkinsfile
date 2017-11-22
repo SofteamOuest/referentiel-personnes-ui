@@ -1,7 +1,8 @@
+#!groovy
 import java.text.*
 
 // pod utilisé pour la compilation du projet
-podTemplate(label: 'meltingpoc-build-pod', nodeSelector: 'medium', containers: [
+podTemplate(label: 'meltingpoc-referentiel-personnes-ui-pod', nodeSelector: 'medium', containers: [
 
   // le slave jenkins
   containerTemplate(name: 'jnlp', image: 'jenkinsci/jnlp-slave:alpine'),
