@@ -128,9 +128,7 @@ class PersonneAdd extends React.Component {
       ...personne,
       date_de_naissance: date
     };
-    this.setState({
-      personne: newPersonne
-    });
+    this.setState({ personne: newPersonne });
   };
 
   submitPersonne() {

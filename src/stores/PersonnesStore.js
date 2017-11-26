@@ -9,11 +9,9 @@ const PersonnesStore = types
   })
   .actions(self => ({
     fetchPersonnes: flow(function* load() {
-      self.personnes = [];
-      const personnes = yield fetch(
+      self.personnes = yield fetch(
         "https://meltingpoc.k8.wildwidewest.xyz/api-personnes-mock/personnes"
       ).then(data => data.json());
-      self.personnes = personnes;
     }),
     submitPersonne: flow(function* post(personne) {
       delete personne.id;
@@ -37,7 +35,6 @@ const PersonnesStore = types
       self.edited = personne;
     },
     getPersonneById(id) {
-      console.log(self.personnes);
       return self.personnes.filter(personne => personne.id === id);
     }
   }));
