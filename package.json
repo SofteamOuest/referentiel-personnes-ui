@@ -8,8 +8,6 @@
     "enzyme-adapter-react-16": "^1.1.0",
     "enzyme-to-json": "^3.2.2",
     "history": "^4.7.2",
-    "jsdom": "^11.5.1",
-    "jsdom-global": "^3.0.2",
     "lodash": "^4.17.4",
     "material-ui": "^0.19.4",
     "mobx": "^3.3.1",
@@ -38,7 +36,7 @@
     "precommit": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom --updateSnapshot",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   }
 }

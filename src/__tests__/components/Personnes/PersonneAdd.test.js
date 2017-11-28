@@ -1,4 +1,3 @@
-import "jsdom-global/register";
 import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
@@ -13,7 +12,7 @@ configure({ adapter: new Adapter() });
 describe("PersonneAdd tests", () => {
   test("Render PersonneAdd component", () => {
     let personnesStore = PersonnesStore.create();
-    const muiTheme = getMuiTheme();
+    const muiTheme = getMuiTheme({ userAgent: "all" });
     const component = shallow(<PersonneAdd personnesStore={personnesStore} />, {
       context: { muiTheme },
       childContextTypes: { muiTheme: PropTypes.object.isRequired }
