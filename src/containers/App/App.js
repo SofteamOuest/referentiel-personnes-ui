@@ -29,7 +29,7 @@ const history = createBrowserHistory();
 const App = ({ personnesStore }) => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <div>
-      <Router history={history} basename={"/referentiel-personnes-ui"}>
+      <Router history={history} basename={"/gestion-personnes-react"}>
         <div>
           <Header />
           {personnesStore.fetchingData ? (
