@@ -4,19 +4,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import { getMuiTheme } from "material-ui/styles/index";
 
-import PersonneAdd from "../../../components/Personnes/PersonneAdd";
+import PersonnesList from "../../../components/Personnes/PersonnesList";
 import PersonnesStore from "../../../stores/PersonnesStore";
 
 configure({ adapter: new Adapter() });
 
-describe("PersonneAdd tests", () => {
-  test("Render PersonneAdd component", () => {
+describe("PersonnesList tests", () => {
+  test("Render PersonnesList component", () => {
     let personnesStore = PersonnesStore.create();
     const muiTheme = getMuiTheme({ userAgent: "all" });
-    const component = shallow(<PersonneAdd personnesStore={personnesStore} />, {
-      context: { muiTheme },
-      childContextTypes: { muiTheme: PropTypes.object.isRequired }
-    });
+    const component = shallow(
+      <PersonnesList personnesStore={personnesStore} />,
+      {
+        context: { muiTheme },
+        childContextTypes: { muiTheme: PropTypes.object.isRequired }
+      }
+    );
     expect(component).toMatchSnapshot();
   });
 });
