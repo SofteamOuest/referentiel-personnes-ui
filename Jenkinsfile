@@ -73,7 +73,7 @@ podTemplate(label: 'meltingpoc-referentiel-personnes-ui-pod', nodeSelector: 'med
       stage('deploy') {
 
 
-                build job: "referentiel-personnes-ui-run/master",
+                build job: "/SofteamOuest/referentiel-personnes-ui-run/master",
                   wait: false,
                   parameters: [[$class: 'StringParameterValue', name: 'image', value: "$now"]]
 
