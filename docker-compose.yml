@@ -2,5 +2,5 @@ version: '3.2'
 services:
 
   referentiel-personnes-ui:
-    image: "registry.k8.wildwidewest.xyz/repository/docker-repository/pocs/meltingpoc-referentiel-personnes-ui:{tag}"
+    image: "registry.k8.wildwidewest.xyz/repository/docker-repository/pocs/meltingpoc-referentiel-personnes-ui:${tag}"
     build: .
