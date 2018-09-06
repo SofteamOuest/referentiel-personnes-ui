@@ -1,5 +1,5 @@
 # Dockerfile (tag: v3)
-FROM nginx
+FROM nginx:1.15.3-alpine
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
