@@ -41,21 +41,23 @@ podTemplate(label: 'meltingpoc-referentiel-personnes-ui-pod', nodeSelector: 'med
         def now = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())
 
         stage('CHECKOUT') {
-            checkout scm;
+            checkout scm
         }
 
         container('node') {
             stage('BUILD SOURCES') {
-                sh 'npm install';
-                sh 'npm run build';
+                sh 'npm install'
+                sh 'npm run build'
             }
         }
 
-        container('sonarscanner') {
-            stage('QUALITY') {
-                sh 'sonar-scanner'
-            }
+    container('sonarscanner') {
+      stage('QUALITY') {
+        withCredentials([string(credentialsId: 'sonarqube_token', variable: 'token')]) {
+          sh 'sonar-scanner -Dsonar.login=${token}'
         }
+      }
+    }
 
         container('docker') {
 
