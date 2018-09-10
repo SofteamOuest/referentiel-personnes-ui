@@ -37,12 +37,12 @@ podTemplate(label: 'meltingpoc-referentiel-personnes-ui-pod', nodeSelector: 'med
 
     def now = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())
 
-    stage('checkout sources') {
+    stage('CHECKOUT') {
       checkout scm;
     }
 
     container('node') {
-      stage('build IHM dist') {
+      stage('BUILD SOURCES') {
         sh 'npm install';
         sh 'npm run build';
       }
@@ -50,7 +50,7 @@ podTemplate(label: 'meltingpoc-referentiel-personnes-ui-pod', nodeSelector: 'med
 
     container('docker') {
 
-      stage('build docker image') {
+      stage('BUILD DOCKER IMAGE') {
 
         sh 'mkdir /etc/docker'
 
@@ -70,7 +70,7 @@ podTemplate(label: 'meltingpoc-referentiel-personnes-ui-pod', nodeSelector: 'med
 
     container('kubectl') {
 
-      stage('deploy') {
+      stage('RUN') {
 
                 build job: "/SofteamOuest/chart-run/master",
                         wait: false,
